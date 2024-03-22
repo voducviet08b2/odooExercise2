@@ -18,6 +18,7 @@ export function createTaskStore() {
     selectingX: null,
     selectingY: null,
     moves: [], // lưu các nước đi để hoàn tác
+    history: [],
 
     boardHightlightAround: function () {
       const matrices = [];
@@ -43,6 +44,9 @@ export function createTaskStore() {
     setBoard({ state }, position, fillNumber) {
       state.board[position.x][position.y] = fillNumber;
     },
+    undoBoard({state}, board) {
+      state.board = board ? _.cloneDeep(board) : _.cloneDeep(originalBoard)
+    },    
     activeNoteMode({ state }) {
       state.isActiveNote.value = !state.isActiveNote.value;
     },
@@ -117,6 +121,12 @@ export function createTaskStore() {
     removeMove({ state }) {
       state.moves.pop();
     },
+    addHistory({state}, board) {
+      state.history.push(board)
+    },
+    removeHistory({state}) {
+      state.history.pop()
+    }
   };
 
   const store = new Store({ state, actions });

@@ -12,6 +12,7 @@ export class Root extends Component {
   getters = useGetters();
   board = useStore((state) => state.board);
   isNoteActivated = useStore((state) => state.isActiveNote);
+  history =  useStore((state) => state.history)
   state = useStore((state) => ({
     selectingX: state.selectingX,
     selectingY: state.selectingY,
@@ -22,7 +23,7 @@ export class Root extends Component {
     this.state = useState({
       // moves: [],// Lưu số nước đi để hoàn tác
       error: 0,
-      // numberArr: [],
+      // numberNoteArray: [],
     });
   }
 
@@ -44,24 +45,23 @@ export class Root extends Component {
         },
         value
       );
-      this.dispatch("setMove", {
-        x: this.state.selectingX,
-        y: this.state.selectingY,
-      });
+      this.dispatch("addHistory", _.cloneDeep(this.board))
+      // this.dispatch("setMove", {
+      //   x: this.state.selectingX,
+      //   y: this.state.selectingY,
+      // });
     } else {
-      const length = this.moves.length;
-
-      let numberArr = [];
+      let numberNoteArray = [];
       if (
         Array.isArray(this.board[this.state.selectingX][this.state.selectingY])
       ) {
-        numberArr = this.board[this.state.selectingX][this.state.selectingY];
+        numberNoteArray = this.board[this.state.selectingX][this.state.selectingY];
       }
-      if (numberArr.includes(value)) {
-        const index = numberArr.findIndex((number) => number === value);
-        numberArr.splice(index, 1);
+      if (numberNoteArray.includes(value)) {
+        const index = numberNoteArray.findIndex((number) => number === value);
+        numberNoteArray.splice(index, 1);
       } else {
-        numberArr.push(value);
+        numberNoteArray.push(value);
       }
       this.dispatch(
         "setBoard",
@@ -69,8 +69,9 @@ export class Root extends Component {
           x: this.state.selectingX,
           y: this.state.selectingY,
         },
-        _.cloneDeep(numberArr)
+        _.cloneDeep(numberNoteArray)
       );
+      this.dispatch("addHistory", _.cloneDeep(this.board))
     }
   }
 
@@ -83,18 +84,22 @@ export class Root extends Component {
   }
 
   undoMove() {
-    const lengthArr = this.moves.length;
-    if (lengthArr > 0 && this.state.error < 3) {
-      this.state.error++;
-      this.dispatch(
-        "setBoard",
-        {
-          x: this.moves[lengthArr - 1].x,
-          y: this.moves[lengthArr - 1].y,
-        },
-        0
-      );
-      this.dispatch("removeMove");
-    }
+    // const lengthArr = this.moves.length;
+    // if (lengthArr > 0 && this.state.error < 3) {
+      // this.state.error++;
+      // this.dispatch(
+      //   "setBoard",
+      //   {
+      //     x: this.moves[lengthArr - 1].x,
+      //     y: this.moves[lengthArr - 1].y,
+      //   },
+      //   0
+      // );
+      // this.dispatch("removeMove");
+    // }
+    
+    this.dispatch("undoBoard", this.history[this.history.length - 2])
+    console.log(this.history);
+    this.dispatch("removeHistory", this.board)
   }
 }
