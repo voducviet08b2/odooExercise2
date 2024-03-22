@@ -13,7 +13,7 @@
             <div class="level-title-block d-flex ml-3">
                 <p class="level-title">Lỗi : <t t-esc="props.error"/>/3</p>
                 <p class="level-title">Điểm số : 50</p>
-                <p class="level-title">02:34</p>
+                <p class="level-title"><t t-esc="state.time"/></p>
             </div>
         </div>
     </t>

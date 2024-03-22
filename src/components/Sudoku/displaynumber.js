@@ -13,7 +13,7 @@ export class DisplayNumber extends Component {
     [4, 5, 6],
     [7, 8, 9],
   ];
-  passNumber(x) {
+  fillNumberToCell(x) {
     this.props.onSelect(x);
   }
 }

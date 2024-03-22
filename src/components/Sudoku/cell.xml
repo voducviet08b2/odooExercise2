@@ -9,7 +9,7 @@
             (props.isCellRight ? 'board-block-right-border ' : '') +
             (props.isCellTop ? 'board-block-top-border ' : '') + 
             (props.isCellLeft ? 'board-block-left-border ' : '')  +
-            (props.isHighlightCell ? 'board-block-highlight ' : '')"
+            (props.isCellHighlighted ? 'board-block-highlight ' : '')"
             t-on-click="clickBoardBlock">
             <t t-if="props.value === 0">
                 <t t-set="displayValue" t-value="null" />

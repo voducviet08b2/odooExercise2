@@ -4,7 +4,7 @@ const { useRef, useState, useDispatch, useStore } = owl.hooks;
 
 export class CellSudoku extends Component {
   static template = "CellSudoku";
-  static props = ["x", "y", "value", "isSelected", "onSelect", "isAroundCell", "isCellRight", "isCellBottom", "isCellTop", "isCellLeft","isHighlightCell"];
+  static props = ["x", "y", "value", "isSelected", "onSelect", "isAroundCell", "isCellRight", "isCellBottom", "isCellTop", "isCellLeft","isCellHighlighted"];
   displayNumber = [
     [1, 2, 3],
     [4, 5, 6],

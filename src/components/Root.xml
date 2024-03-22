@@ -10,19 +10,18 @@
                     <t t-set="index_x" t-value="0" />
                     <t t-foreach="board" t-as="row">
                         <t t-set="index_y" t-value="0" />
-                        <t t-foreach="row" t-as="cell">
-                            <CellSudoku x="index_x" y="index_y" value="cell"
+                        <t t-foreach="row" t-as="cell_content">
+                            <CellSudoku x="index_x" y="index_y" value="cell_content"
                                 isSelected="checkSelected(index_x, index_y)"
-                                isAroundCell="dispatch('checkAroundSelected', {x: index_x, y: index_y})"
-                                isCellRight="dispatch('checkCellRight', {x: index_x, y: index_y})"
-                                isCellBottom="dispatch('checkCellBottom', {x: index_x, y: index_y})"
-                                isCellTop="dispatch('checkCellTop', {x: index_x, y: index_y})"
-                                isCellLeft="dispatch('checkCellLeft', {x: index_x, y: index_y})"
-                                fixedCell="state.fixedCell"
+                                isAroundCell="isAroundCell(index_x, index_y)"
+                                isCellRight="isCellRight(index_x, index_y)"
+                                isCellBottom="isCellBottom(index_x, index_y)"
+                                isCellTop="isCellTop(index_x, index_y)"
+                                isCellLeft="isCellLeft(index_x, index_y)"
                                 onSelect="(x,y) => handleSelect(x,y)"
                                 selectingX="state.selectingX"
                                 selectingY="state.selectingY"
-                                isHighlightCell="dispatch('checkHighlightCell', {x: index_x, y: index_y, selectingX: state.selectingX, selectingY: state.selectingY})"
+                                isCellHighlighted="isCellHighlighted(index_x, index_y)"
                             />
                             <t t-set="index_y" t-value="index_y + 1" />
                         </t>

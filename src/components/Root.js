@@ -19,7 +19,9 @@ export class Root extends Component {
   }));
   moves = useStore((state) => state.moves);
   dispatch = useDispatch();
+  
   setup() {
+                             
     this.state = useState({
       // moves: [],// Lưu số nước đi để hoàn tác
       error: 0,
@@ -84,22 +86,30 @@ export class Root extends Component {
   }
 
   undoMove() {
-    // const lengthArr = this.moves.length;
-    // if (lengthArr > 0 && this.state.error < 3) {
-      // this.state.error++;
-      // this.dispatch(
-      //   "setBoard",
-      //   {
-      //     x: this.moves[lengthArr - 1].x,
-      //     y: this.moves[lengthArr - 1].y,
-      //   },
-      //   0
-      // );
-      // this.dispatch("removeMove");
-    // }
-    
     this.dispatch("undoBoard", this.history[this.history.length - 2])
-    console.log(this.history);
     this.dispatch("removeHistory", this.board)
+  }
+
+  isAroundCell(x,y) {
+    return this.dispatch('checkAroundSelected', {x, y})
+  }
+
+  isCellRight(x,y) {
+    return this.dispatch('checkCellRight', {x, y})
+  }
+
+  isCellBottom(x,y) {
+    return this.dispatch('checkCellBottom', {x, y})
+  }
+
+  isCellTop(x,y) {
+    return this.dispatch('checkCellTop', {x, y})
+  }
+
+  isCellLeft(x,y) {
+    return this.dispatch('checkCellLeft', {x, y})
+  }
+  isCellHighlighted(x, y) {
+    return this.dispatch('checkHighlightCell', {x, y, selectingX: this.state.selectingX, selectingY: this.state.selectingY})
   }
 }
