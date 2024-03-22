@@ -30,7 +30,7 @@
                     </t>
                 </div>
                 <div class="body-player">
-                    <PlayerSudoku onSelect="(value) => selectNumber(value)" removeCellValue="() => removeCellValue()"  undoMove="() => undoMove()" />
+                    <DisplayNumber onSelect="(value) => selectNumber(value)" removeCellValue="() => removeCellValue()"  undoMove="() => undoMove()" />
                 </div>
             </div>
         </div>
