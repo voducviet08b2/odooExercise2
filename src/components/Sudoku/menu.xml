@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates>
+    <t t-name="MenuTitle" owl="1">
+        <div class="menu-title d-flex">
+            <div class="level-title-block d-flex">
+                <p>Độ khó: </p>
+                <a href="#" class="level-title">Dễ</a>
+                <a href="#" class="level-title">Trung bình</a>
+                <a href="#" class="level-title">Khó</a>
+                <a href="#" class="level-title">Chuyên gia</a>
+                <a href="#" class="level-title">Bậc thầy</a>
+            </div>
+            <div class="level-title-block d-flex ml-3">
+                <p class="level-title">Lỗi : <t t-esc="props.error"/>/3</p>
+                <p class="level-title">Điểm số : 50</p>
+                <p class="level-title">02:34</p>
+            </div>
+        </div>
+    </t>
+</templates>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates>
+    <t t-name="CellSudoku" owl="1">
+        <div class="board-block text-center"
+            t-att-class="(props.isSelected ? 'board-block-selected ' : ' ') + 
+            (props.isCellBottom ? 'board-block-bottom-border ' : '') +
+            (props.isAroundCell ? 'board-block-around-selected ': '') + 
+            (state.fixed &amp;&amp; props.value ? ' board-block-fixed ' : '') + 
+            (props.isCellRight ? 'board-block-right-border ' : '') +
+            (props.isCellTop ? 'board-block-top-border ' : '') + 
+            (props.isCellLeft ? 'board-block-left-border ' : '')  +
+            (props.isHighlightCell ? 'board-block-highlight ' : '')"
+            t-on-click="clickBoardBlock">
+            <t t-if="props.value === 0">
+                <t t-set="displayValue" t-value="null" />
+            </t>
+            <t t-else="">
+                <t t-set="displayValue" t-value="props.value" />
+            </t>
+            <t t-if="Array.isArray(displayValue)">
+                <!-- Render something when cell is an array -->
+                <div t-foreach="displayNumber" t-as="row">
+                    <div class="sudoku-row d-flex">
+                        <div t-foreach="row" t-as="cell">
+                              <div t-att-class="displayValue.includes(cell) ? 'set-active-display' : ''"  style="font-size: 10px; margin-left:5px; margin-top: 2px; margin-right: 5px; opacity: 0">
+                                <t t-esc="cell"/>
+                              </div>
+                        </div>
+                    </div>
+                </div>
+            </t>
+            <t t-else="">
+                <!-- Render cell when it's not an array -->
+                <t t-esc="displayValue"/>
+            </t>
+        </div>
+    </t>
+</templates>
