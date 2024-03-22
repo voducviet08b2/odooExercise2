@@ -2,12 +2,12 @@ import { owl } from "@odoo/owl";
 const { Component } = owl;
 const { useRef, useState, useDispatch, useStore, useGetters } = owl.hooks;
 
-export class PlayerSudoku extends Component {
-  static template = "PlayerSudoku";
+export class DisplayNumber extends Component {
+  static template = "DisplayNumber";
   static props = ["onSelect", "removeCellValue", "undoMove"];
   dispatch = useDispatch();
 
-  isNoteActivated = useStore((state) => state.isActiveNote);
+  isActiveNote = useStore((state) => state.isActiveNote);
   playerBoard = [
     [1, 2, 3],
     [4, 5, 6],
