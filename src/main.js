@@ -8,7 +8,7 @@ import { createTaskStore } from "./store";
 
 (async function setup() {
   const template1 = await loadFile(`./components/Root.xml`);
-  const template2 = await loadFile(`./components/Sudoku/menu.xml`);
+  const template2 = await loadFile(`./components/Sudoku/header.xml`);
   const template3 = await loadFile(`./components/Sudoku/cell.xml`);
   const template4 = await loadFile(`./components/Sudoku/displaynumber.xml`);
 

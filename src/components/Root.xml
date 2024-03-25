@@ -3,7 +3,7 @@
     <t t-name="Sudoku" owl="1">
         <div class="body">
             <div class="menu-title">
-                <MenuTitle error="state.error" />
+                <Header error="state.error" />
             </div>
             <div class="body-main d-flex">
                 <div class="display-board">

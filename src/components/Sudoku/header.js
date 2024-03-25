@@ -3,8 +3,8 @@ const {Component} = owl
 const { useRef, useState, useDispatch, useStore } = owl.hooks;
 
 
-export class MenuTitle extends Component {
-    static template = "MenuTitle";
+export class Header extends Component {
+    static template = "Header";
     static props = ["error"];
     minutes = 0;
     seconds = 0;

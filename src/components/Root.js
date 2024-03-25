@@ -2,13 +2,13 @@ import { owl } from "@odoo/owl";
 
 const { Component } = owl;
 const { useStore, useDispatch, useGetters, useState } = owl.hooks;
-import { MenuTitle } from "./Sudoku/menu";
+import { Header } from "./Sudoku/header";
 import { CellSudoku } from "./Sudoku/cell";
 import { DisplayNumber } from "./Sudoku/displaynumber";
 
 export class Root extends Component {
   static template = "Sudoku";
-  static components = { MenuTitle, CellSudoku, DisplayNumber };
+  static components = { Header, CellSudoku, DisplayNumber };
   getters = useGetters();
   board = useStore((state) => state.board);
   isNoteActivated = useStore((state) => state.isActiveNote);

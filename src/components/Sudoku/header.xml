@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <templates>
-    <t t-name="MenuTitle" owl="1">
+    <t t-name="Header" owl="1">
         <div class="menu-title d-flex">
             <div class="level-title-block d-flex">
                 <p>Độ khó: </p>
