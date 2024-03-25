@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates>
+    <t t-name="DisplayNumber" owl="1">
+        <div>
+            <div class="player-sudoku ml-3">
+                <button class="button-player btn-primary" t-on-click="props.undoMove">Hoàn tác</button>
+                <button class="button-player btn-primary ml-3" t-on-click="props.removeCellValue">Xóa</button>
+                <button class="button-player ml-3"
+                    t-att-class="isActiveNote.value ? 'btn-primary' : 'btn-secondary'"
+                    t-on-click="dispatch('activeNoteMode')">
+                    Ghi chú
+                </button>
+                <button class="button-player btn-primary ml-3">Gợi ý</button>
+            </div>
+            <div class="ml-3 mt-3">
+                <div t-foreach="playerBoard" t-as="row">
+                    <div class="sudoku-row d-flex">
+                        <div t-foreach="row" t-as="cell">
+                            <button class="button-number mr-3 mb-3" t-on-click="fillNumberToCell(cell)">
+                                <t t-esc="cell" />
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <button class="btn-secondary ml-3 mt-3 w-100" style="height:40px">Bắt đầu trờ chơi 
+                    mới</button>
+            </div>
+        </div>
+    </t>
+</templates>

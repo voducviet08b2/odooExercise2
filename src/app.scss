@@ -1,0 +1,136 @@
+body {
+  font-family: Lato, serif;
+}
+
+.task-list {
+  width: 300px;
+  margin: 50px auto;
+  background: aliceblue;
+  padding: 10px
+}
+
+.task {
+  font-size: 18px;
+  color: #111111;
+  display: grid;
+  grid-template-columns: 30px auto 30px;
+}
+
+.task > input {
+  margin: auto;
+}
+
+.delete {
+  opacity: 0;
+  cursor: pointer;
+  text-align: center
+}
+
+.task:hover .delete {
+  opacity: 1;
+}
+
+.task.done {
+  opacity: 0.7
+}
+
+.todo-app {
+  width: 300px;
+  margin: 50px auto;
+  background: aliceblue;
+  padding: 10px;
+}
+
+.todo-app > input {
+  display: block;
+  margin: auto;
+}
+
+.task-list {
+  margin-top: 8px;
+}
+
+.task-panel {
+  color: #0088ff;
+  margin-top: 8px;
+  font-size: 14px;
+  display: flex;
+}
+
+.task-panel .task-counter {
+  flex-grow: 1;
+}
+
+.task-panel span {
+  padding: 5px;
+  cursor: pointer;
+}
+
+.task-panel span.active {
+  font-weight: bold;
+}
+
+.level-title{
+  margin-left: 20px;
+}
+
+.board-block{
+  font-size: 30px;
+  border-bottom: azure;
+  background-color: #fcfcfc;
+  border: 1px solid #cbcbcb;
+  &-fixed {
+    color: #2785ff;
+  };
+  &-around-selected {
+    background-color:#c5edff!important;
+  };
+  &-right-border {
+    border-right: 1px solid #1a1919;
+  };
+  &-bottom-border {
+    border-bottom: 1px solid #1a1919;
+  };
+  &-top-border {
+    border-top: 1px solid #1a1919;
+  };
+  &-left-border {
+    border-left: 1px solid #1a1919;
+  };
+  &-highlight {
+    background-color:#c5edff!important;
+  };
+  &-selected { 
+    background-color:#44c4ff!important;
+  };
+}
+
+.button-player {
+  font-size: 30px;
+  border-radius: 50%;
+}
+
+.button-number {
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  font-size: 55px;
+  border: antiquewhite;
+  background-color: bisque;
+}
+
+.display-board {
+  display: grid;
+  grid-template-rows: repeat(9, 1fr);
+  grid-template-columns: repeat(9, 1fr);
+  width: 500px;
+  height: 500px;
+}
+
+.set-active-display {
+  opacity: 1!important;
+}
+
+.board-block-selected-around {
+  background-color: red!important;
+}
